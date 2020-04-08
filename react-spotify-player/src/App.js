@@ -16,6 +16,9 @@ class App extends React.Component {
       playing: false,
       position: 0,
       duration: 0,
+      uri: "spotify:track:4iV5W9uYEdYUVa79Axb7Rh",
+      qToken:
+        "BQDDa-UuHHwTf4Rgahof9jkwq2A2uMqRj3BNMoHWM_HgriL1FB3zgXUC2CRO8UsFvpxnBk1G4ZjVYtnDZuuFuXF2rKONr1FTgNH_40dQTUVhy45MSulUM1VNNnpBD7MhlsWP3ly4YyiMnQ5XDUTqwBb7UybUs-xCxB9YuwBWntiBHjY-MTTe",
     };
     this.playerCheckInterval = null;
   }
@@ -63,7 +66,8 @@ class App extends React.Component {
       let { device_id } = data;
       console.log("Let the music play on!");
       this.setState({ deviceId: device_id });
-      this.transferPlaybackHere();
+      console.log("Device ID: " + this.state.deviceId);
+      //this.transferPlaybackHere();
     });
   }
 
@@ -84,6 +88,21 @@ class App extends React.Component {
 
   onNextClick() {
     this.player.nextTrack();
+  }
+
+  onAddQueue() {
+    const { uri, deviceId, qToken } = this.state;
+    fetch("https://api.spotify.com/v1/me/player/queue", {
+      method: "POST",
+      headers: {
+        authorization: `Bearer ${qToken}`,
+        "Content-Type": "application/json",
+      },
+      body: JSON.stringify({
+        device_ids: [deviceId],
+        uri: uri,
+      }),
+    });
   }
 
   onStateChanged(state) {
@@ -159,6 +178,9 @@ class App extends React.Component {
                 {playing ? "Pause" : "Play"}
               </button>
               <button onClick={() => this.onNextClick()}>Next</button>
+            </p>
+            <p>
+              <button onClick={() => this.onAddQueue()}>Add to Queue</button>
             </p>
           </div>
         ) : (
