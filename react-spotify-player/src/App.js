@@ -1,6 +1,6 @@
 import React from "react";
-import logo from "./logo.svg";
 import "./App.css";
+import axios from "axios";
 
 class App extends React.Component {
   constructor(props) {
@@ -16,9 +16,7 @@ class App extends React.Component {
       playing: false,
       position: 0,
       duration: 0,
-      uri: "spotify:track:4iV5W9uYEdYUVa79Axb7Rh",
-      qToken:
-        "BQDDa-UuHHwTf4Rgahof9jkwq2A2uMqRj3BNMoHWM_HgriL1FB3zgXUC2CRO8UsFvpxnBk1G4ZjVYtnDZuuFuXF2rKONr1FTgNH_40dQTUVhy45MSulUM1VNNnpBD7MhlsWP3ly4YyiMnQ5XDUTqwBb7UybUs-xCxB9YuwBWntiBHjY-MTTe",
+      uri: "spotify:track:20VD8Q5doO3dEQ3bbYxtSp",
     };
     this.playerCheckInterval = null;
   }
@@ -67,7 +65,7 @@ class App extends React.Component {
       console.log("Let the music play on!");
       this.setState({ deviceId: device_id });
       console.log("Device ID: " + this.state.deviceId);
-      //this.transferPlaybackHere();
+      this.transferPlaybackHere();
     });
   }
 
@@ -77,6 +75,50 @@ class App extends React.Component {
       this.playerCheckInterval = setInterval(() => this.checkForPlayer(), 1000);
     }
   }
+
+  onAddQueue() {
+    const { uri, token } = this.state;
+    const options = {
+      headers: {
+        authorization: `Bearer ${token}`,
+        "Content-Type": "application/json",
+      },
+    };
+    axios
+      .post(
+        "https://api.spotify.com/v1/me/player/queue?uri=" + uri,
+        null,
+        options
+      )
+      .then(
+        (response) => {
+          console.log("added to playlist: " + uri);
+        },
+        (error) => {
+          console.log(error);
+          console.log("error: " + token);
+        }
+      );
+  }
+
+  // fetchQueue() {
+  //   const { uri, token } = this.state;
+  //   fetch("https://api.spotify.com/v1/me/player/queue?uri=" + uri, {
+  //     method: "POST",
+  //     headers: {
+  //       accept: "application/json",
+  //       "content-type": "application/json",
+  //       authorization: "Bearer " + token,
+  //     },
+  //     body: false,
+  //   })
+  //     .then((response) => {
+  //       console.log(response);
+  //     })
+  //     .catch((err) => {
+  //       console.log(err);
+  //     });
+  // }
 
   onPrevClick() {
     this.player.previousTrack();
@@ -88,21 +130,6 @@ class App extends React.Component {
 
   onNextClick() {
     this.player.nextTrack();
-  }
-
-  onAddQueue() {
-    const { uri, deviceId, qToken } = this.state;
-    fetch("https://api.spotify.com/v1/me/player/queue", {
-      method: "POST",
-      headers: {
-        authorization: `Bearer ${qToken}`,
-        "Content-Type": "application/json",
-      },
-      body: JSON.stringify({
-        device_ids: [deviceId],
-        uri: uri,
-      }),
-    });
   }
 
   onStateChanged(state) {
@@ -132,18 +159,37 @@ class App extends React.Component {
 
   transferPlaybackHere() {
     const { deviceId, token } = this.state;
-    fetch("https://api.spotify.com/v1/me/player", {
-      method: "PUT",
+    const options = {
       headers: {
         authorization: `Bearer ${token}`,
         "Content-Type": "application/json",
       },
-      body: JSON.stringify({
-        device_ids: [deviceId],
-        play: true,
-      }),
-    });
+    };
+    const data = { device_ids: [deviceId], play: true };
+    axios.put("https://api.spotify.com/v1/me/player", data, options).then(
+      (response) => {
+        console.log("AXIOS SUCCESS");
+      },
+      (error) => {
+        console.log(error);
+      }
+    );
   }
+
+  // transferPlaybackHere() {
+  //   const { deviceId, token } = this.state;
+  //   fetch("https://api.spotify.com/v1/me/player", {
+  //     method: "PUT",
+  //     headers: {
+  //       authorization: `Bearer ${token}`,
+  //       "Content-Type": "application/json",
+  //     },
+  //     body: JSON.stringify({
+  //       device_ids: [deviceId],
+  //       play: true,
+  //     }),
+  //   });
+  // }
 
   render() {
     const {
