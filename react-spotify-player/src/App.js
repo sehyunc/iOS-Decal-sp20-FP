@@ -17,8 +17,15 @@ class App extends React.Component {
       position: 0,
       duration: 0,
       uri: "spotify:track:20VD8Q5doO3dEQ3bbYxtSp",
+      qToken:
+        "BQDznQuRLFEoBfJSYGkUH-UiTrWOdMLygFUHXxmFnXFpo-NWrlFytS2AtUVhpve_ijPUaszJILOfHWwdJ7ulVU3LkkZaT8E872ho6_FRe4d59ZvoRU3WAoa81h79cjDQ7IBkTLptTbYQuNqYTJm0AOLdpeO3tTBQZ8EazwNocR1IUu3rhucCc21Hjg",
+      topArtists: "",
     };
     this.playerCheckInterval = null;
+  }
+
+  componentWillMount() {
+    this.getTopArtists();
   }
 
   checkForPlayer() {
@@ -27,7 +34,7 @@ class App extends React.Component {
     if (window.Spotify !== null) {
       clearInterval(this.playerCheckInterval);
       this.player = new window.Spotify.Player({
-        name: "Jacob is Dumb but here's my Spotify Player",
+        name: "Andu is a Queerio",
         getOAuthToken: (cb) => {
           cb(token);
         },
@@ -65,7 +72,7 @@ class App extends React.Component {
       console.log("Let the music play on!");
       this.setState({ deviceId: device_id });
       console.log("Device ID: " + this.state.deviceId);
-      this.transferPlaybackHere();
+      //this.transferPlaybackHere();
     });
   }
 
@@ -99,6 +106,26 @@ class App extends React.Component {
           console.log("error: " + token);
         }
       );
+  }
+
+  getTopArtists() {
+    const { qToken } = this.state;
+    const options = {
+      headers: {
+        authorization: `Bearer ${qToken}`,
+        "Content-Type": "application/json",
+      },
+    };
+    axios
+      .get(
+        "https://api.spotify.com/v1/me/top/artists?time_range=short_term&limit=10",
+        options
+      )
+      .then((response) => response.data)
+      .then((data) => {
+        this.setState({ topArtists: data["items"] });
+        console.log(this.state.topArtists);
+      });
   }
 
   // fetchQueue() {
@@ -168,7 +195,7 @@ class App extends React.Component {
     const data = { device_ids: [deviceId], play: true };
     axios.put("https://api.spotify.com/v1/me/player", data, options).then(
       (response) => {
-        console.log("AXIOS SUCCESS");
+        console.log(response);
       },
       (error) => {
         console.log(error);
@@ -228,6 +255,17 @@ class App extends React.Component {
             <p>
               <button onClick={() => this.onAddQueue()}>Add to Queue</button>
             </p>
+            <p>
+              <button onClick={() => this.getTopArtists()}>
+                Get Top Artists
+              </button>
+            </p>
+            <ul>
+              <li>Top Artists</li>
+              {this.state.topArtists.map((s) => (
+                <li>{s["name"]}</li>
+              ))}
+            </ul>
           </div>
         ) : (
           <div className="Player">
