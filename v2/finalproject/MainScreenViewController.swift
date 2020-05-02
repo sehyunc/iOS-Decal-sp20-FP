@@ -7,6 +7,7 @@
 //
 
 import UIKit
+import Spartan
 
 class MainScreenViewController: UIViewController {
     
@@ -20,11 +21,14 @@ class MainScreenViewController: UIViewController {
 
     override func viewDidLoad() {
         super.viewDidLoad()
-        currentDJ = dj0
-        currentDJ!.topArtists()
+        Spartan.authorizationToken = "BQCtiDtDIHQnAILbb68Ppr7i1YN1g3uN6Nauxdlb3HlSKXqEsWskYs8JOSF6lATCUw1lc8Bjxj3IafttD5B5C7S5amLRiQOr-9yeDnRl9lEN2At4ke2I2isMa3D9OikPveNsbLxA666EgzXilGRE4hkdzeqMJnYHvBoToRGQJsR8GGd90qx9HSVmLQ"
+//        currentDJ = dj0
+//        currentDJ!.topArtists()
         labels = [artist1, artist2, artist3, artist4, artist5]
+//        print(labels)
 //        artists = currentDJ!.getArtists()
-//        updateArtists(artists: artists)
+//        updateArtists(artists: currentDJ!.topArtists())
+        topArtists()
     }
     
     @IBAction func goToMoods(_ sender: UIButton) {
@@ -60,12 +64,28 @@ class MainScreenViewController: UIViewController {
     @IBOutlet var artist5: UILabel!
     
     func updateArtists(artists: [String]) {
-        for e in 0..<self.labels.count {
+        print("IN UPDATE")
+        print(artists)
+        for e in 0..<artists.count {
             if let label = self.labels[e] {
                 label.text = artists[e]
             }
 //            self.labels[e].text = artists[e]
         }
+    }
+    
+    func topArtists() {
+        _ = Spartan.getMyTopArtists(limit: 10, offset: 0, timeRange: .shortTerm, success: { (pagingObject) in
+            let artists = pagingObject.items
+            for e in 0..<self.labels.count {
+                if let label = self.labels[e] {
+                    label.text = artists![e].name
+                }
+            }
+        }, failure: { (error) in
+            print(Spartan.authorizationToken)
+            print(error)
+        })
     }
 
     /*

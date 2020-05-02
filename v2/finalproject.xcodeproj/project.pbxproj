@@ -20,7 +20,6 @@
 		B2E16DA5245D763C008F4060 /* TableViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = B2E16D7A245D361A008F4060 /* TableViewCell.swift */; };
 		B2E16DA7245D7C14008F4060 /* MainScreenViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = B2E16DA6245D7C14008F4060 /* MainScreenViewController.swift */; };
 		D9E0AAC9245DCF6F0006B604 /* SpotifyDJ.swift in Sources */ = {isa = PBXBuildFile; fileRef = D9E0AAC8245DCF6F0006B604 /* SpotifyDJ.swift */; };
-		D9E0AACB245DCF900006B604 /* SpotifyDJViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = D9E0AACA245DCF900006B604 /* SpotifyDJViewController.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -63,7 +62,6 @@
 		B2E16D88245D6D6D008F4060 /* Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Assets.xcassets; sourceTree = SOURCE_ROOT; };
 		B2E16DA6245D7C14008F4060 /* MainScreenViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MainScreenViewController.swift; sourceTree = "<group>"; };
 		D9E0AAC8245DCF6F0006B604 /* SpotifyDJ.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SpotifyDJ.swift; sourceTree = "<group>"; };
-		D9E0AACA245DCF900006B604 /* SpotifyDJViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SpotifyDJViewController.swift; sourceTree = "<group>"; };
 		F2E1914AE52619477676FEC3 /* Pods-finalproject.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-finalproject.debug.xcconfig"; path = "Target Support Files/Pods-finalproject/Pods-finalproject.debug.xcconfig"; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
@@ -129,7 +127,6 @@
 				B2E16D7A245D361A008F4060 /* TableViewCell.swift */,
 				B2E16D7B245D361A008F4060 /* TableViewCell.xib */,
 				D9E0AAC8245DCF6F0006B604 /* SpotifyDJ.swift */,
-				D9E0AACA245DCF900006B604 /* SpotifyDJViewController.swift */,
 			);
 			path = finalproject;
 			sourceTree = "<group>";
@@ -400,7 +397,6 @@
 				B2E16DA7245D7C14008F4060 /* MainScreenViewController.swift in Sources */,
 				B2E16DA2245D7627008F4060 /* AppDelegate.swift in Sources */,
 				D9E0AAC9245DCF6F0006B604 /* SpotifyDJ.swift in Sources */,
-				D9E0AACB245DCF900006B604 /* SpotifyDJViewController.swift in Sources */,
 				B2E16DA5245D763C008F4060 /* TableViewCell.swift in Sources */,
 				B2E16DA1245D7624008F4060 /* ViewController.swift in Sources */,
 				B2E16DA3245D762E008F4060 /* SceneDelegate.swift in Sources */,
