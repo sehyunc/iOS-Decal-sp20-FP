@@ -11,6 +11,7 @@
 		7E416389245D5A62003C3ACA /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 7E416387245D5A62003C3ACA /* Main.storyboard */; };
 		7E41638B245D5BC3003C3ACA /* TableViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7E41638A245D5BC3003C3ACA /* TableViewController.swift */; };
 		7E41638D245D5BCA003C3ACA /* TableViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7E41638C245D5BCA003C3ACA /* TableViewCell.swift */; };
+		7E41638E245D61D5003C3ACA /* SpotifyDJ.app in Resources */ = {isa = PBXBuildFile; fileRef = D96256B4245D356D0006403A /* SpotifyDJ.app */; };
 		D96256B8245D356D0006403A /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = D96256B7245D356D0006403A /* AppDelegate.swift */; };
 		D96256BA245D356D0006403A /* SceneDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = D96256B9245D356D0006403A /* SceneDelegate.swift */; };
 		D96256BC245D356D0006403A /* ViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = D96256BB245D356D0006403A /* ViewController.swift */; };
@@ -163,6 +164,7 @@
 			isa = PBXResourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				7E41638E245D61D5003C3ACA /* SpotifyDJ.app in Resources */,
 				7E416389245D5A62003C3ACA /* Main.storyboard in Resources */,
 				D96256C4245D35700006403A /* LaunchScreen.storyboard in Resources */,
 				D96256C1245D35700006403A /* Assets.xcassets in Resources */,
