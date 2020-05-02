@@ -16,6 +16,7 @@ class MainScreenViewController: UIViewController {
     var currentDJ: SpotifyDJ?
     
     var labels = [UILabel?]()
+    var tracks = [UILabel?]()
     
     var artists = [String]()
 
@@ -25,10 +26,12 @@ class MainScreenViewController: UIViewController {
 //        currentDJ = dj0
 //        currentDJ!.topArtists()
         labels = [artist1, artist2, artist3, artist4, artist5]
+        tracks = [track1, track2, track3, track4, track5]
 //        print(labels)
 //        artists = currentDJ!.getArtists()
 //        updateArtists(artists: currentDJ!.topArtists())
         topArtists()
+        topTracks()
     }
     
     @IBAction func goToMoods(_ sender: UIButton) {
@@ -63,17 +66,6 @@ class MainScreenViewController: UIViewController {
     
     @IBOutlet var artist5: UILabel!
     
-    func updateArtists(artists: [String]) {
-        print("IN UPDATE")
-        print(artists)
-        for e in 0..<artists.count {
-            if let label = self.labels[e] {
-                label.text = artists[e]
-            }
-//            self.labels[e].text = artists[e]
-        }
-    }
-    
     func topArtists() {
         _ = Spartan.getMyTopArtists(limit: 10, offset: 0, timeRange: .shortTerm, success: { (pagingObject) in
             let artists = pagingObject.items
@@ -87,6 +79,28 @@ class MainScreenViewController: UIViewController {
             print(error)
         })
     }
+    
+    @IBOutlet var track1: UILabel!
+    @IBOutlet var track2: UILabel!
+    @IBOutlet var track3: UILabel!
+    @IBOutlet var track4: UILabel!
+    @IBOutlet var track5: UILabel!
+    
+    func topTracks() {
+       _ = Spartan.getMyTopTracks(limit: 10, offset: 0, timeRange: .shortTerm, success: { (pagingObject) in
+            let t = pagingObject.items
+            for e in 0..<self.tracks.count {
+                if let label = self.tracks[e] {
+                    label.text = t![e].name
+                }
+            }
+              }, failure: { (error) in
+                  print(Spartan.authorizationToken)
+                  print(error)
+              })
+    }
+    
+    
 
     /*
     // MARK: - Navigation
