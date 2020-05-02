@@ -3,7 +3,7 @@ All of the final project files can be found in v2
 ## Initial Setup
 - run ```pod install```
 - get authotization token from https://developer.spotify.com/console/get-current-user-top-artists-and-tracks/?type=artists&time_range=&limit=&offset=
-- copy and paste token into the Spartan.authorization field in finalProject/MainScreeenViewController.swift
+- copy and paste token into the Spartan.authorization field in ```finalProject/MainScreeenViewController.swift```
 - run project and see your stats and recommendations!
 ## Notes
 While I admit this may seem like a barebonees project, we believe it has potential and are motivated to continue working on it even after this Decal ends. Some additional features we would like to add are:
