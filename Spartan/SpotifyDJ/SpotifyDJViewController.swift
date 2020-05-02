@@ -16,7 +16,7 @@ class SpotifyDJViewController: UIViewController {
     
     override func viewDidLoad() {
         currentDJ = dj0
-//        currentDJ?.topArtists()
+        currentDJ?.topArtists()
         currentDJ?.topTracks()
     }
     

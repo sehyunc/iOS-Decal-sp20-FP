@@ -13,40 +13,39 @@ class SpotifyDJ {
     init() {
         //get new authtoken from:
         //https://developer.spotify.com/console/get-current-user-top-artists-and-tracks/
-        Spartan.authorizationToken = "BQAJ2goMS5YkPA-7ngl2xGFgK3qDld_raknAG5VJG1fapmlhdNhuZvuIo4xTYShSF8PFyYHjoTrykgmwFfHYLQ-XbRNfd4H4M5x__xNeb_PV65l9UjFejUGzDRtquewn-ix3r2WqWdlPo5BEN9SmUfmhjcRa-mXwQkVAq8W-prsakWlYa4dTIG2WAw"
+        Spartan.authorizationToken = "BQC2ttZVFvvryvBkoaKMOigN0CZiIq2zZzW-vDXU9qrVdF-FoQ06uj92e7yl0SDKsU0-NUL454prpwXerR456o7_ztkO8yQzPod8qLNy3Y1ZVS0NnACXaIb_r4Gh-kJywjK22-e78GraB_bIaZFKrpWXiPNHHXuvokZ5xoTrLnPfXvLZLXZc2Svwhw"
     }
-    public static var loggingEnabled: Bool = true
+    var trackDict = [String: String]()
+    var artists = [String]()
 
     func topArtists() {
-        
         _ = Spartan.getMyTopArtists(limit: 10, offset: 0, timeRange: .shortTerm, success: { (pagingObject) in
-            var artists = pagingObject.items
-            for e in artists! {
-                print(e.name!)
-            }
+            self.saveArtists(artists: pagingObject.items)
         }, failure: { (error) in
             print(Spartan.authorizationToken)
             print(error)
         })
     }
     
-    func topTracks() {
-        var trackDict = [String: String]()
-        var tracks = [Track]()
-        
-        _ = Spartan.getMyTopTracks(limit: 10, offset: 0, timeRange: .shortTerm, success: { (pagingObject) in
-            tracks = pagingObject.items
-
-        }, failure: { (error) in
-            print(Spartan.authorizationToken)
-            print(error)
-        })
-        print("OUTSIDE CLOSURE")
-        print(tracks)
-        for e in tracks {
-            print(e)
+    func saveArtists(artists: [Artist]) {
+        for e in artists {
+            self.artists.append(e.name)
         }
-        return
+    }
+    
+    func saveTracks(tracks: [Track]) {
+        for e in tracks {
+            self.trackDict[e.name] = e.album.name
+        }
+    }
+    
+    func topTracks() {
+       _ = Spartan.getMyTopTracks(limit: 10, offset: 0, timeRange: .shortTerm, success: { (pagingObject) in
+                self.saveTracks(tracks: pagingObject.items)
+              }, failure: { (error) in
+                  print(Spartan.authorizationToken)
+                  print(error)
+              })
     }
 
 }
