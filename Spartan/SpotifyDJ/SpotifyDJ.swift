@@ -18,6 +18,7 @@ class SpotifyDJ {
     var trackDict = [String: String]()
     var artists = [String]()
 
+    
     func topArtists() {
         _ = Spartan.getMyTopArtists(limit: 10, offset: 0, timeRange: .shortTerm, success: { (pagingObject) in
             self.saveArtists(artists: pagingObject.items)

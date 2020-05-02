@@ -3,15 +3,17 @@
 	archiveVersion = 1;
 	classes = {
 	};
-	objectVersion = 50;
+	objectVersion = 51;
 	objects = {
 
 /* Begin PBXBuildFile section */
 		738BC70129D8FC18DD3F8C11 /* Pods_SpotifyDJ.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 7C6E0ADB48EADDECA9FF8227 /* Pods_SpotifyDJ.framework */; };
+		7E416389245D5A62003C3ACA /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 7E416387245D5A62003C3ACA /* Main.storyboard */; };
+		7E41638B245D5BC3003C3ACA /* TableViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7E41638A245D5BC3003C3ACA /* TableViewController.swift */; };
+		7E41638D245D5BCA003C3ACA /* TableViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7E41638C245D5BCA003C3ACA /* TableViewCell.swift */; };
 		D96256B8245D356D0006403A /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = D96256B7245D356D0006403A /* AppDelegate.swift */; };
 		D96256BA245D356D0006403A /* SceneDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = D96256B9245D356D0006403A /* SceneDelegate.swift */; };
 		D96256BC245D356D0006403A /* ViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = D96256BB245D356D0006403A /* ViewController.swift */; };
-		D96256BF245D356D0006403A /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = D96256BD245D356D0006403A /* Main.storyboard */; };
 		D96256C1245D35700006403A /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = D96256C0245D35700006403A /* Assets.xcassets */; };
 		D96256C4245D35700006403A /* LaunchScreen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = D96256C2245D35700006403A /* LaunchScreen.storyboard */; };
 		D96256CC245D35D90006403A /* SpotifyDJ.swift in Sources */ = {isa = PBXBuildFile; fileRef = D96256CB245D35D90006403A /* SpotifyDJ.swift */; };
@@ -21,11 +23,13 @@
 /* Begin PBXFileReference section */
 		48C3C31D3ED56C96EAC3A305 /* Pods-SpotifyDJ.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-SpotifyDJ.release.xcconfig"; path = "Target Support Files/Pods-SpotifyDJ/Pods-SpotifyDJ.release.xcconfig"; sourceTree = "<group>"; };
 		7C6E0ADB48EADDECA9FF8227 /* Pods_SpotifyDJ.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Pods_SpotifyDJ.framework; sourceTree = BUILT_PRODUCTS_DIR; };
+		7E416388245D5A62003C3ACA /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/Main.storyboard; sourceTree = "<group>"; };
+		7E41638A245D5BC3003C3ACA /* TableViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = TableViewController.swift; path = "../../reena ui/designdemo/TableViewController.swift"; sourceTree = "<group>"; };
+		7E41638C245D5BCA003C3ACA /* TableViewCell.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = TableViewCell.swift; path = "../../reena ui/designdemo/TableViewCell.swift"; sourceTree = "<group>"; };
 		D96256B4245D356D0006403A /* SpotifyDJ.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = SpotifyDJ.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		D96256B7245D356D0006403A /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
 		D96256B9245D356D0006403A /* SceneDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SceneDelegate.swift; sourceTree = "<group>"; };
 		D96256BB245D356D0006403A /* ViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ViewController.swift; sourceTree = "<group>"; };
-		D96256BE245D356D0006403A /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/Main.storyboard; sourceTree = "<group>"; };
 		D96256C0245D35700006403A /* Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Assets.xcassets; sourceTree = "<group>"; };
 		D96256C3245D35700006403A /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/LaunchScreen.storyboard; sourceTree = "<group>"; };
 		D96256C5245D35700006403A /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
@@ -60,7 +64,6 @@
 				F89B38E77EF8B95A94F17F3C /* Pods-SpotifyDJ.debug.xcconfig */,
 				48C3C31D3ED56C96EAC3A305 /* Pods-SpotifyDJ.release.xcconfig */,
 			);
-			name = Pods;
 			path = Pods;
 			sourceTree = "<group>";
 		};
@@ -85,10 +88,12 @@
 		D96256B6245D356D0006403A /* SpotifyDJ */ = {
 			isa = PBXGroup;
 			children = (
+				7E41638C245D5BCA003C3ACA /* TableViewCell.swift */,
+				7E41638A245D5BC3003C3ACA /* TableViewController.swift */,
 				D96256B7245D356D0006403A /* AppDelegate.swift */,
 				D96256B9245D356D0006403A /* SceneDelegate.swift */,
 				D96256BB245D356D0006403A /* ViewController.swift */,
-				D96256BD245D356D0006403A /* Main.storyboard */,
+				7E416387245D5A62003C3ACA /* Main.storyboard */,
 				D96256C0245D35700006403A /* Assets.xcassets */,
 				D96256C2245D35700006403A /* LaunchScreen.storyboard */,
 				D96256C5245D35700006403A /* Info.plist */,
@@ -158,9 +163,9 @@
 			isa = PBXResourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				7E416389245D5A62003C3ACA /* Main.storyboard in Resources */,
 				D96256C4245D35700006403A /* LaunchScreen.storyboard in Resources */,
 				D96256C1245D35700006403A /* Assets.xcassets in Resources */,
-				D96256BF245D356D0006403A /* Main.storyboard in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -214,9 +219,11 @@
 			buildActionMask = 2147483647;
 			files = (
 				D96256CE245D35EA0006403A /* SpotifyDJViewController.swift in Sources */,
+				7E41638B245D5BC3003C3ACA /* TableViewController.swift in Sources */,
 				D96256BC245D356D0006403A /* ViewController.swift in Sources */,
 				D96256B8245D356D0006403A /* AppDelegate.swift in Sources */,
 				D96256CC245D35D90006403A /* SpotifyDJ.swift in Sources */,
+				7E41638D245D5BCA003C3ACA /* TableViewCell.swift in Sources */,
 				D96256BA245D356D0006403A /* SceneDelegate.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
@@ -224,10 +231,10 @@
 /* End PBXSourcesBuildPhase section */
 
 /* Begin PBXVariantGroup section */
-		D96256BD245D356D0006403A /* Main.storyboard */ = {
+		7E416387245D5A62003C3ACA /* Main.storyboard */ = {
 			isa = PBXVariantGroup;
 			children = (
-				D96256BE245D356D0006403A /* Base */,
+				7E416388245D5A62003C3ACA /* Base */,
 			);
 			name = Main.storyboard;
 			sourceTree = "<group>";
