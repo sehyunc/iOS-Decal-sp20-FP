@@ -1,0 +1,56 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<Bucket
+   uuid = "A43163B3-50DA-42E9-9BAB-4C0431BFDCA8"
+   type = "0"
+   version = "2.0">
+   <Breakpoints>
+      <BreakpointProxy
+         BreakpointExtensionID = "Xcode.Breakpoint.FileBreakpoint">
+         <BreakpointContent
+            uuid = "06FE00CA-514A-4A8B-B4DF-49EF81E3A4B6"
+            shouldBeEnabled = "No"
+            ignoreCount = "0"
+            continueAfterRunningActions = "No"
+            filePath = "SpotifyDJ/SpotifyDJ.swift"
+            startingColumnNumber = "9223372036854775807"
+            endingColumnNumber = "9223372036854775807"
+            startingLineNumber = "37"
+            endingLineNumber = "37"
+            landmarkName = "topTracks()"
+            landmarkType = "7">
+            <Locations>
+               <Location
+                  uuid = "06FE00CA-514A-4A8B-B4DF-49EF81E3A4B6 - f4010a95b23695f6"
+                  shouldBeEnabled = "Yes"
+                  ignoreCount = "0"
+                  continueAfterRunningActions = "No"
+                  symbolName = "SpotifyDJ.SpotifyDJ.topTracks() -&gt; ()"
+                  moduleName = "SpotifyDJ"
+                  usesParentBreakpointCondition = "Yes"
+                  urlString = "file:///Users/sehyun/Desktop/SpotifyDJ/SpotifyDJ/SpotifyDJ.swift"
+                  startingColumnNumber = "9223372036854775807"
+                  endingColumnNumber = "9223372036854775807"
+                  startingLineNumber = "37"
+                  endingLineNumber = "37"
+                  offsetFromSymbolStart = "286">
+               </Location>
+               <Location
+                  uuid = "06FE00CA-514A-4A8B-B4DF-49EF81E3A4B6 - d3105d8ae2efaf8d"
+                  shouldBeEnabled = "Yes"
+                  ignoreCount = "0"
+                  continueAfterRunningActions = "No"
+                  symbolName = "closure #1 (Spartan.PagingObject&lt;Spartan.Track&gt;) -&gt; () in SpotifyDJ.SpotifyDJ.topTracks() -&gt; ()"
+                  moduleName = "SpotifyDJ"
+                  usesParentBreakpointCondition = "Yes"
+                  urlString = "file:///Users/sehyun/Desktop/SpotifyDJ/SpotifyDJ/SpotifyDJ.swift"
+                  startingColumnNumber = "9223372036854775807"
+                  endingColumnNumber = "9223372036854775807"
+                  startingLineNumber = "35"
+                  endingLineNumber = "35"
+                  offsetFromSymbolStart = "83">
+               </Location>
+            </Locations>
+         </BreakpointContent>
+      </BreakpointProxy>
+   </Breakpoints>
+</Bucket>
